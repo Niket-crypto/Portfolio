@@ -1,0 +1,90 @@
+.Projects-wrapper {
+    display: flex;
+    flex-direction: column;
+    max-width: 1200px;
+    margin: 10px auto;
+
+}
+
+.Project_1 {
+    display: block;
+    font-family: "Abeeze", sans-serif;
+    font-weight: 700;
+    margin-bottom: 20px;
+    width: 100%;
+    background-color: #4a34f1;
+    padding: 10px 15px;
+    border: 2px solid #3498db;
+    border-radius: 30px;
+    
+}
+
+ img {
+    display: block;
+    width: 100%;
+    height: auto;
+
+}
+
+.Project_1_details {
+    margin-top: 10px;
+    background-color: #4a34f1;
+    padding: 10px 15px;
+    border: 2px solid #3498db;
+    border-radius: 30px;
+    cursor: pointer;
+    
+}
+
+ summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+    list-style: none; 
+    cursor: pointer;
+    
+}
+
+
+ summary::after {
+    content: ""; 
+    display: inline-block;
+    width: 24px;  
+    height: 24px;
+    background-image: url("./Img/secondary icon 2.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    transition: transform 0.3s ease-in-out; 
+}
+.Image_wrapper {
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+    border-radius: 30px;
+    border: 2px solid #3498db;
+}
+
+details[open] summary::after {
+    transform: rotate(90deg); 
+}
+.Project_2 {
+    display: block;
+    font-family: "Abeeze", sans-serif;
+    font-weight: 700;
+    margin: 0px auto;
+    margin-bottom: 20px;
+    width: 1200px;
+    background-color: #4a34f1;
+    padding: 10px 15px;
+    border: 2px solid #3498db;
+    border-radius: 30px;
+    }
+    .Project_2_details{
+    margin-top: 10px;
+    background-color: #4a34f1;
+    padding: 10px 15px;
+    border: 2px solid #3498db;
+    border-radius: 30px;
+    cursor: pointer;
+    }

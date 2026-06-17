@@ -2,13 +2,15 @@ import { Link } from "react-router-dom";
 import Grainient from "../../components/Gradient/Gradient";
 import TextType from "../../components/TextType/TypeText";
 import "./Hero.css";
+import { useState } from "react";
 
 const Hero = () => {
   const text =
     "Hi! I am looking for my first position as a Junior Frontend Developer. My goal is to gain practical experience in commercial development, grow as a specialist, and bring value to the team and business. I am not afraid of challenges, learn quickly, and take a responsible approach to my work. I would be happy to discuss potential collaboration opportunities.";
+  const [menuOpen, setMenuOpen] = useState(false);
   return (
     <>
-      <div
+      <div 
         style={{
           width: "100%",
           height: "100vh",
@@ -50,10 +52,16 @@ const Hero = () => {
           <div className="elements">
             <img src="./Img/photo_2026-04-28_14-00-51.jpg" alt="" />
             <h3>Serhienko Nikita Vadimovich </h3>
-          </div>
+            <button className={`burger-menu-btn ${menuOpen ? "active" : ""}`} onClick={() => setMenuOpen(!menuOpen)}>
+              <span></span>
+              <span></span>
+              <span></span>
+            </button>
+          </div> 
+          
 
           <div className="Info-wrapper">
-            <span className="header-title">
+            <div className="header-title">
               Junior Software Engineer
               <p>
               <TextType
@@ -66,16 +74,16 @@ const Hero = () => {
                 cursorBlinkDuration={0.5}
               />
               </p>
-            </span>
+            </div>
 
-            <div className="Buttons">
+            <div className= {`Buttons ${menuOpen ? "open" : ""}`}>
               <div className = "button_1_wrapper">
-              <Link to="/projects">
+              <Link to="/projects" onClick={() => setMenuOpen(false)}>
                 <button className = "Button_1">Projects</button>
               </Link>
               </div>
               <div className = "button_2_wrapper">
-              <Link to="/hobbies">
+              <Link to="/hobbies" onClick={() => setMenuOpen(false)}>
                 <button className = "Button_2">Hobbies</button>
               </Link>
               </div>

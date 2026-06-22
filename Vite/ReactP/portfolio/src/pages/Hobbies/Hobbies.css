@@ -11,13 +11,14 @@
 .Hobbie-list {
     display: block;
     font-weight: 700;
-    margin: 20px auto;
+    margin: 60px auto;
     width: 100%;
     background-color: #4a34f1;
     padding: 10px 15px;
     border: 2px solid #3498db;
     border-radius: 30px;
-}
+    box-sizing:border-box
+} 
 .Title {
     display: block;
     font-size: 24px;
@@ -28,7 +29,7 @@
     border: 2px solid #3498db;
     border-radius: 30px;
     padding: 10px 15px;
-    width: fit-content;
+    width: 100%;
     height: 400px;
     box-sizing: border-box;
 
@@ -44,7 +45,10 @@
     border: 2px solid #3498db;
     box-sizing: border-box;
 }
-
+.slider-wrapper li{
+   flex: 0 0 400px;
+    cursor: pointer
+}
 .slider-controls {
     position: absolute;
     top: 50%;
@@ -76,7 +80,7 @@
 .details_wrapper details {
 
     background-color: #00000075;
-    padding: 0px 20px;
+    padding: 10px 20px;
     margin: 10px;
     border-radius: 30px;
     cursor: pointer;
@@ -88,11 +92,15 @@
 .details_wrapper {
     position: relative;
 }
-
+.summary_wrapper{
+     font-family: 'Abeeze', sans-serif;
+     color:white;
+     font-weight: 700;
+}
 .Img_wrapper {
     border-radius: 30px;
     width: 100%;
-    height: 400px;
+    height: 100%;
     box-sizing: border-box;
     object-fit: cover;
     transition: transform 0.5s ease
@@ -158,4 +166,52 @@
     0%, 45% { opacity: 0; }        
     60%, 80% { opacity: 1; }       
     95%, 100% { opacity: 0; }      
+}
+
+@media (max-width: 768px) {
+  
+  .Hobbie-list dl {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  
+  .Title {
+    height: auto;
+    min-height: auto;
+    font-size: 18px; 
+  }
+
+  
+  .slider-wrapper {
+    width: 300px;
+  }
+
+  
+  .slider-card {
+    flex: 0 0 300px; 
+    cursor: pointer;
+  }
+
+  
+  .img-stack,
+  .Img_wrapper {
+    height: 320px; 
+  }
+  
+   
+  .details_wrapper details {
+
+    margin: 5px;
+
+  
+  }
+
+    .slider-wrapper li {
+    flex: 0 0 300px;
+    cursor: pointer;
+}
+.summary_wrapper{
+     font-size: 14px;
+}
 }

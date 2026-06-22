@@ -5,7 +5,7 @@ import Hero from "./pages/Hero/Hero";
 
 const router = createBrowserRouter([
   {
-    path: "/",
+    path: "/hero",
     element: <Hero />,
   },
   {

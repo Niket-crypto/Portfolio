@@ -3,6 +3,7 @@ import Grainient from "../../components/Gradient/Gradient";
 import TextType from "../../components/TextType/TypeText";
 import "./Hero.css";
 import { useState } from "react";
+import Projects from "../Projects/Projects";
 
 const Hero = () => {
   const text =

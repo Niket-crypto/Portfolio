@@ -1,3 +1,12 @@
-body {
+html, body, #root {
   color: white;
+  background-color: #12123B;
+  color-scheme: dark light;
+  min-height: 100dvh; 
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  color-scheme: light;
 }
+
+

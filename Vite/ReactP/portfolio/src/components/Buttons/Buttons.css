@@ -1,0 +1,78 @@
+.Buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  margin: 20px;
+}
+
+.Buttons button {
+  padding: 10px 20px;
+  width: 110px;
+  gap: 20px;
+  background-color: #4a34f1;
+  border: 5px solid transparent;
+  letter-spacing: 1px;
+  font-weight: 700;
+  font-family: "ABeeZee", sans-serif;
+  color: #f9f9f9;
+  border-radius: 30px;
+  background-clip: padding-box;
+  transition: 0.7s ease;
+  cursor: pointer;
+}
+
+.Buttons button:hover {
+  background-color: #17104f;
+}
+
+.button_1_wrapper,
+.button_2_wrapper {
+  border-radius: 30px;
+  background-image: linear-gradient(to right,
+      #4a34f175,
+      #edf503,
+      #4a34f175,
+      #edf503);
+  background-origin: border-box;
+  background-clip: border-box;
+  background-size: 300% 100%;
+  animation: moveGradient 6s linear infinite;
+}
+
+@media (max-width: 900px) {
+     .Buttons {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100dvh;
+    z-index: 999;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    margin: 0;
+    opacity: 0;
+    pointer-events: none;
+    touch-action: none;
+    transition: all 0.4s ease;
+  }
+   .Buttons.open {
+    opacity: 1;
+    pointer-events: auto;
+    
+  }}
+  @keyframes moveGradient {
+  0% {
+    background-position: 0% 0%;
+  }
+
+  100% {
+    background-position: 100% 100%;
+  }
+}

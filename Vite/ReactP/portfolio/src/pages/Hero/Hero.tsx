@@ -1,14 +1,16 @@
-import { Link } from "react-router-dom";
+import  Buttons  from "../../components/Buttons/Buttons";
 import Grainient from "../../components/Gradient/Gradient";
 import TextType from "../../components/TextType/TypeText";
-import "./Hero.css";
+import Header from "../../components/Header/Header";
 import { useState } from "react";
-import Projects from "../Projects/Projects";
+import "./Hero.css";
+
 
 const Hero = () => {
   const text =
-    "Hi! I am looking for my first position as a Junior Frontend Developer. My goal is to gain practical experience in commercial development, grow as a specialist, and bring value to the team and business. I am not afraid of challenges, learn quickly, and take a responsible approach to my work. I would be happy to discuss potential collaboration opportunities.";
-  const [menuOpen, setMenuOpen] = useState(false);
+    "Hi! :) I am an experienced Frontend Developer who loves building dynamic, scalable, and pixel-perfect web applications. While my core expertise lies in the React ecosystem (TypeScript, GSAP, Tailwind), I also successfully build robust backend solutions by leveraging modern AI tools to accelerate development and solve complex logic. I am not afraid of challenges, learn quickly, and take a highly responsible approach to my work. I would be absolutely happy to discuss how I can bring value to your team!";
+const [menuOpen, setMenuOpen] = useState(false);
+const [contactsOpen, setIsOpen] = useState(false);
   return (
     <>
       <div 
@@ -18,7 +20,7 @@ const Hero = () => {
           position: "fixed",
           top: 0,
           left: 0,
-          zIndex: -1,
+          zIndex: 0,
         }}
       >
         <Grainient
@@ -46,25 +48,18 @@ const Hero = () => {
           zoom={0.9}
         />
       </div>
-      <div className="Background">
+      <div style={{ position: "relative" }}>
         <h1>Portfolio</h1>
 
         <div className="Header">
-          <div className="elements">
-            <img src="./Img/photo_2026-04-28_14-00-51.jpg" alt="" />
-            <h3>Serhienko Nikita Vadimovich </h3>
-            <button className={`burger-menu-btn ${menuOpen ? "active" : ""}`} onClick={() => setMenuOpen(!menuOpen)}>
-              <span></span>
-              <span></span>
-              <span></span>
-            </button>
-          </div> 
+       
+       <Header menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
           
 
           <div className="Info-wrapper">
             <div className="header-title">
               Junior Software Engineer
-              <p>
+              <div>
               <TextType
                 text={text}
                 typingSpeed={40}
@@ -74,26 +69,23 @@ const Hero = () => {
                 cursorCharacter="|"
                 cursorBlinkDuration={0.5}
               />
-              </p>
-            </div>
-
-            <div className= {`Buttons ${menuOpen ? "open" : ""}`}>
-              <div className = "button_1_wrapper">
-              <Link to="/projects" onClick={() => setMenuOpen(false)}>
-                <button className = "Button_1">Projects</button>
-              </Link>
-              </div>
-              <div className = "button_2_wrapper">
-              <Link to="/hobbies" onClick={() => setMenuOpen(false)}>
-                <button className = "Button_2">Hobbies</button>
-              </Link>
               </div>
             </div>
+<Buttons menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+         
           </div>
         </div>
       </div>
+       <footer className="Footer">
+        <div className={`Contact-bar ${contactsOpen ? "open" : ""}`}>
+    <a href="mailto:0.nikitasergienko.0@gmail.com">Email: 0.nikitasergienko.0@gmail.com</a>
+    <a href="https://t.me/hanma_nekit">Telegram: @hanma_nekit</a>
+  </div>
+  <button onClick={() => setIsOpen(!contactsOpen)} className={`contact-title ${contactsOpen ? "open" : ""}`}>Contact me</button>
+</footer>
     </>
   );
 };
 
 export default Hero;
+ 

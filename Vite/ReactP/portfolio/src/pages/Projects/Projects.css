@@ -2,11 +2,11 @@
     display: flex;
     flex-direction: column;
     max-width: 1200px;
-    margin: 10px auto;
-
+    margin: 60px auto;
+    font-family: "Abeeze", sans-serif;
 }
 
-.Project_1 {
+.Project_1, .Project_2 {
     display: block;
     font-family: "Abeeze", sans-serif;
     font-weight: 700;
@@ -16,47 +16,78 @@
     padding: 10px 15px;
     border: 2px solid #3498db;
     border-radius: 30px;
-    
 }
 
- img {
+img {
     display: block;
     width: 100%;
     height: auto;
-
 }
 
-.Project_1_details {
+.Project_1_details, .Project_2_details {
+    display: flex;
+    flex-direction: column;
     margin-top: 10px;
     background-color: #4a34f1;
     padding: 10px 15px;
     border: 2px solid #3498db;
     border-radius: 30px;
     cursor: pointer;
-    
 }
 
- summary {
-    display: flex;
+.Project_1_details h4, .Project_2_details h4 {
+    position: relative;
+    width: 100%;
+    justify-content: space-between;
     align-items: center;
-    justify-content: space-between; 
-    list-style: none; 
-    cursor: pointer;
-    
+    display: flex;
+    z-index: 2;
+    margin: 0; 
 }
 
-
- summary::after {
+.Project_1_details h4::after, .Project_2_details h4::after {
     content: ""; 
+    width: 20px;
+    height: 20px;
     display: inline-block;
-    width: 24px;  
-    height: 24px;
+    cursor: pointer;
     background-image: url("./Img/secondary icon 2.svg");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
-    transition: transform 0.3s ease-in-out; 
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1); 
 }
+
+.Project_1_details.open h4::after, .Project_2_details.open h4::after {
+    transform: rotate(90deg); 
+}
+
+.Summary_1, .Summary_2 {
+    display: grid;
+    grid-template-rows: 0fr; 
+    opacity: 0;
+    transition: grid-template-rows 0.6s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.4s ease;  
+    line-height: 1.4;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+.Project_1_details.open .Summary_1, .Project_2_details.open .Summary_2 {
+    grid-template-rows: 1fr; 
+    opacity: 1;
+}
+
+.Summary_inner {
+    overflow: hidden; 
+    transform: translateY(-20px);
+    transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), padding-top 0.6s ease;
+}
+
+.Project_1_details.open .Summary_inner, .Project_2_details.open .Summary_inner {
+    transform: translateY(0); 
+    padding-top: 15px; 
+}
+
 .Image_wrapper {
     width: 100%;
     height: auto;
@@ -65,26 +96,17 @@
     border: 2px solid #3498db;
 }
 
-details[open] summary::after {
-    transform: rotate(90deg); 
+@keyframes moveOverview {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+    }
 }
-.Project_2 {
-    display: block;
-    font-family: "Abeeze", sans-serif;
-    font-weight: 700;
-    margin: 0px auto;
-    margin-bottom: 20px;
-    width: 1200px;
-    background-color: #4a34f1;
-    padding: 10px 15px;
-    border: 2px solid #3498db;
-    border-radius: 30px;
+
+@media (max-width: 768px) {
+    .Projects-wrapper {
+        margin: 15vh 2vh; 
     }
-    .Project_2_details{
-    margin-top: 10px;
-    background-color: #4a34f1;
-    padding: 10px 15px;
-    border: 2px solid #3498db;
-    border-radius: 30px;
-    cursor: pointer;
-    }
+}

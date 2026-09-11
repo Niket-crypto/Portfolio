@@ -108,10 +108,10 @@
     line-height: 1.4;
     color: white;max-height: 200px; 
     font-family: 'Abeeze', sans-serif;
-    overscroll-behavior: contain; /* МАГИЯ: блокирует прокрутку самой страницы, когда листаешь текст */
+    overscroll-behavior: contain; 
 }
 
-/* Красим ползунок самого текста, чтобы он не был уродливо-серым */
+
 .details_wrapper details h4::-webkit-scrollbar {
     width: 4px;
 }
@@ -135,7 +135,7 @@ summary::after{
     width: 20px;
     height: 20px;
     display: inline-block;
-    background-image: url("./Img/secondary icon 2.svg");
+    background-image: url("/Img/secondary-icon 2.svg");
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -191,7 +191,7 @@ summary::after{
     align-items: center;      
     gap: 40px;                
 }
-/* --- ВИДИМЫЙ СКРОЛЛБАР ДЛЯ МОБИЛОК --- */
+
 .scrollbar-wrapper {
     position: absolute;
     bottom: 10px;
@@ -210,11 +210,10 @@ summary::after{
 }
 
 .scrollbar-thumb {
-    width: 33.333%; /* 3 карточки = треть длины */
+    width: 33.333%; 
     height: 100%;
     background-color: #3498db;
     border-radius: 4px;
-    /* Плавность езды синхронизирована с GSAP-анимацией (0.4s) */
     transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
     
     
@@ -269,7 +268,7 @@ summary::after{
     }
 }
 
-/* --- ОРИГИНАЛЬНЫЙ БЛОК НА 480PX (ТОЛЬКО ВЕРТИКАЛЬНАЯ АНИМАЦИЯ) --- */
+
 @media (max-width: 480px) {
     .slider-wrapper { opacity: 0; }
     

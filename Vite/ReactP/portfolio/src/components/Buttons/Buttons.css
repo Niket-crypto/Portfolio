@@ -54,10 +54,8 @@
     justify-content: center;
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    transform: translateZ(0); 
-    -webkit-transform: translateZ(0);
+    backdrop-filter: blur(12px);
     margin: 0;
     opacity: 0;
     pointer-events: none;

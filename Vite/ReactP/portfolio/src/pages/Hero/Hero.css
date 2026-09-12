@@ -51,6 +51,7 @@ h1:nth-of-type(1) {
   max-width: 100%;
   margin-top: auto;
   padding-bottom: 10%;
+  isolation: isolate;
 }
 
 .contact-title {
@@ -65,18 +66,23 @@ h1:nth-of-type(1) {
   gap: 10px; 
   color: white;
   font-size: 24px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(12px);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  
   -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  
+  /* Форсируем 3D-слой без скрытия задней стенки */
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  
   padding: 10px 20px;
-  transition: 0.7s ease;
+  /* Анимируем ТОЛЬКО нужные свойства, избегая all */
+  transition: transform 0.7s ease, background-color 0.3s ease;
   cursor: pointer;
   border-radius: 30px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
   z-index: 2;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
 }
 
 .contact-title::after {
@@ -106,23 +112,30 @@ h1:nth-of-type(1) {
   justify-content: center;
   gap: 30px;
   font-size: 16px;
-  opacity: 0;
-  pointer-events: none;
+  
+  /* Вместо opacity прячем блок через visibility, чтобы блюр не ломался в памяти */
+  visibility: hidden;
+  transform: translateY(20px);
+  
   border-radius: 30px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(12px);
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  
   -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  transform: translate3d(0, 0, 0);
+  -webkit-transform: translate3d(0, 0, 0);
+  
   padding: 10px 20px;
-  transition: all 0.4s ease;
+  transition: visibility 0.4s ease, transform 0.4s ease;
   cursor: pointer;
   z-index: 1000;
 }
 
 .Contact-bar.open {
-  opacity: 1;
-  pointer-events: auto;
+visibility: visible;
+  transform: translateY(0);
 }
 
 .Contact-bar a {

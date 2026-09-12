@@ -1,10 +1,58 @@
-/* ДОБАВИТЬ В САМЫЙ ВЕРХ ФАЙЛА (Прячем rgba от сборщика Vercel) */
-:root {
-  --glass-bg: rgba(255, 255, 255, 0.05);
-  --glass-border: rgba(255, 255, 255, 0.15);
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+-webkit-tap-highlight-color: transparent;
 }
 
-/* ЗАМЕНИТЬ ЭТИ ДВА КЛАССА */
+.Header {
+  display: flex;
+  justify-content: center;
+  font-family: "ABeeZee", sans-serif;
+  font-weight: bold;
+  max-width: 1200px;
+  min-height: 100dvh; 
+  margin: 10px auto;
+}
+
+h1:nth-of-type(1) {
+  font-size: 36px;
+  font-family: "ABeeZee", sans-serif;
+  margin: 0px auto 20px auto;
+  max-width: 1200px;
+  letter-spacing: 1px;
+}
+
+.header-title {
+  display: block;
+  font-size: 24px;
+  font-family: "ABeeZee", sans-serif;
+  color: #f9f9f9;
+  background-color: #4a34f1;
+  border-radius: 30px;
+  padding: 20px;
+}
+
+.Info-wrapper {
+  display: flex;
+  flex-direction: column;
+  padding: 0px 20px;
+}
+
+.Footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "ABeeZee", sans-serif;
+  font-weight: bold;
+  max-width: 1200px;
+  max-width: 100%;
+  margin-top: auto;
+  padding-bottom: 10%;
+}
+
 .contact-title {
   appearance: none;
   outline: none;
@@ -17,18 +65,12 @@
   gap: 10px; 
   color: white;
   font-size: 24px;
-  
-  /* Используем переменные */
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
-  
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   padding: 10px 20px;
-  
-  /* Убрали all, чтобы блюр не пытался анимироваться */
-  transition: transform 0.7s ease, color 0.7s ease; 
-  
+  transition: 0.7s ease;
   cursor: pointer;
   border-radius: 30px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
@@ -36,6 +78,24 @@
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
 }
+
+.contact-title::after {
+  content: ""; 
+  display: block; 
+  width: 24px;  
+  height: 24px;
+  background-image: url("/Img/secondary-icon-2.svg");
+  background-size: contain;
+  background-position: center; 
+  background-repeat: no-repeat;
+  transition: transform 0.2s ease-in-out; 
+}
+
+.contact-title.open::after {
+  transform: rotate(-90deg); 
+}
+
+
 
 .Contact-bar {
   position: fixed;
@@ -50,18 +110,78 @@
   pointer-events: none;
   border-radius: 30px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
-  
-  /* Используем переменные */
-  background: var(--glass-bg);
-  border: 1px solid var(--glass-border);
-  
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   padding: 10px 20px;
-  
-  /* Убрали all, анимируем только прозрачность */
-  transition: opacity 0.4s ease; 
-  
+  transition: all 0.4s ease;
   cursor: pointer;
   z-index: 1000;
+}
+
+.Contact-bar.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.Contact-bar a {
+  color: #f9f9f9;
+  text-decoration: none;
+  font-size: 20px;
+  transition: color 0.2s ease;
+  white-space: nowrap;
+}
+
+@media (hover: hover){
+  .Contact-bar a:hover {
+    color: #edf503;
+  }
+}
+@media (hover: none){
+  .Contact-bar a:active {
+    color: #edf503;
+  }
+  .contact-title:active {
+    color: #edf503;
+  }
+}
+@media(max-width: 968px) {
+  .header-title {
+    margin-top: 90px;
+    letter-spacing: 1px;
+  }
+
+  h1:nth-of-type(1) {
+    display: none;
+  }
+  .Contact-bar {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+.Contact-bar a {
+    font-size: 16px;
+    white-space: nowrap;
+  }
+
+  .Contact-bar a:active {
+    color: #edf503;
+  }
+
+
+}
+
+
+@media (max-width: 400px) {
+  .header-title {
+    font-size: 20px;
+  }
+  .Contact-bar a {
+    font-size: 14px;
+    white-space: nowrap;
+  }
+  .Contact-bar {
+    gap: 10px;
+  }
 }

@@ -1,20 +1,19 @@
-import Buttons from "../../components/Buttons/Buttons";
+import  Buttons  from "../../components/Buttons/Buttons";
 import Grainient from "../../components/Gradient/Gradient";
 import TextType from "../../components/TextType/TypeText";
 import Header from "../../components/Header/Header";
 import { useState } from "react";
-import { createPortal } from "react-dom"; // <-- ДОБАВЛЕН ИМПОРТ ПОРТАЛА
 import "./Hero.css";
+
 
 const Hero = () => {
   const text =
     "Hi! :) I am an experienced Frontend Developer who loves building dynamic, scalable, and pixel-perfect web applications. While my core expertise lies in the React ecosystem (TypeScript, GSAP, Tailwind), I also successfully build robust backend solutions by leveraging modern AI tools to accelerate development and solve complex logic. I am not afraid of challenges, learn quickly, and take a highly responsible approach to my work. I would be absolutely happy to discuss how I can bring value to your team!";
-  const [menuOpen, setMenuOpen] = useState(false);
-  const [contactsOpen, setIsOpen] = useState(false);
-  
+const [menuOpen, setMenuOpen] = useState(false);
+const [contactsOpen, setIsOpen] = useState(false);
   return (
     <>
-      <div
+      <div 
         style={{
           width: "100%",
           height: "100vh",
@@ -53,49 +52,40 @@ const Hero = () => {
         <h1>Portfolio</h1>
 
         <div className="Header">
-          <Header menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+       
+       <Header menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+          
 
           <div className="Info-wrapper">
             <div className="header-title">
               Junior Software Engineer
               <div>
-                <TextType
-                  text={text}
-                  typingSpeed={40}
-                  pauseDuration={Infinity}
-                  loop={false}
-                  showCursor
-                  cursorCharacter="|"
-                  cursorBlinkDuration={0.5}
-                />
+              <TextType
+                text={text}
+                typingSpeed={40}
+                pauseDuration={Infinity}
+                loop={false}
+                showCursor
+                cursorCharacter="|"
+                cursorBlinkDuration={0.5}
+              />
               </div>
             </div>
-            <Buttons menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+<Buttons menuOpen={menuOpen} setMenuOpen={setMenuOpen} />
+         
           </div>
         </div>
       </div>
-      
-      {/* <-- НАЧАЛО ПОРТАЛА: выкидываем футер в document.body --> */}
-      {createPortal(
-        <footer className="Footer">
-          <div className={`Contact-bar ${contactsOpen ? "open" : ""}`}>
-            <a href="mailto:0.nikitasergienko.0@gmail.com">
-              Email: 0.nikitasergienko.0@gmail.com
-            </a>
-            <a href="https://t.me/hanma_nekit">Telegram: @hanma_nekit</a>
-          </div>
-          <button
-            onClick={() => setIsOpen(!contactsOpen)}
-            className={`contact-title ${contactsOpen ? "open" : ""}`}
-          >
-            Contact me
-          </button>
-        </footer>,
-        document.body
-      )}
-      {/* <-- КОНЕЦ ПОРТАЛА --> */}
+       <footer className="Footer">
+        <div className={`Contact-bar ${contactsOpen ? "open" : ""}`}>
+    <a href="mailto:0.nikitasergienko.0@gmail.com">Email: 0.nikitasergienko.0@gmail.com</a>
+    <a href="https://t.me/hanma_nekit">Telegram: @hanma_nekit</a>
+  </div>
+  <button onClick={() => setIsOpen(!contactsOpen)} className={`contact-title ${contactsOpen ? "open" : ""}`}>Contact me</button>
+</footer>
     </>
   );
 };
 
 export default Hero;
+ 

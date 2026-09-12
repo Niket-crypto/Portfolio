@@ -97,6 +97,7 @@
     border-radius: 60px;
     border: 1px solid rgba(255, 255, 255, 0.15);
     background: rgba(255, 255, 255, 0.05);
+    -webkit-backdrop-filter: blur(12px);
     backdrop-filter: blur(12px);
     z-index: 1000;
     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
@@ -104,11 +105,7 @@
     font-family: 'Abeeze', sans-serif;
     box-sizing: border-box;
     transform: translateZ(0); 
-    -webkit-transform: translateZ(0);
-    -webkit-backdrop-filter: blur(12px);
     isolation: isolate;
-    transform: translate3d(0, 0, 0);
-  -webkit-transform: translate3d(0, 0, 0);
   }
 .burger-menu-btn {
     display: block;

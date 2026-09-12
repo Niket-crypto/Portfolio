@@ -116,14 +116,10 @@ h1:nth-of-type(1) {
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
   background: var(--glass-bg);
   border: 1px solid var(--glass-border);
-  
   -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
-  transform: translate3d(0, 0, 0);
-  -webkit-transform: translate3d(0, 0, 0);
-  
   padding: 10px 20px;
-  transition: opacity, 0.4 ease visibility 0.4s ease, transform 0.4s ease;
+  transition: opacity 0.4s ease, visibility 0.4s ease, transform 0.4s ease;
   cursor: pointer;
   z-index: 1000;
 }

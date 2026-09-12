@@ -75,7 +75,8 @@ h1:nth-of-type(1) {
   border-radius: 30px;
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
   z-index: 2;
-  transform: translateZ(0);
+  transform: translateZ(0); 
+  -webkit-transform: translateZ(0);
   will-change: transform;
   backface-visibility: hidden;
   -webkit-backface-visibility: hidden;
@@ -120,6 +121,8 @@ h1:nth-of-type(1) {
   transition: all 0.4s ease;
   cursor: pointer;
   z-index: 1000;
+  transform: translateZ(0); 
+  -webkit-transform: translateZ(0);
 }
 
 .Contact-bar.open {

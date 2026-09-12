@@ -103,6 +103,8 @@
     margin: 0px;
     font-family: 'Abeeze', sans-serif;
     box-sizing: border-box;
+    transform: translateZ(0); 
+    -webkit-transform: translateZ(0);
     -webkit-backdrop-filter: blur(12px);
   }
 .burger-menu-btn {
